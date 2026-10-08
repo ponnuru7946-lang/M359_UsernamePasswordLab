@@ -7,16 +7,20 @@ public class UserInfoLab {
         // Ask the user to enter their first and last name and pass these
         // values to the generateUsername method and save the returned result.
         Scanner kb = new Scanner(System.in);
-        System.out.println("Please enter your first and last name: ");
+        System.out.println("Please enter your first name: ");
         String firstName = kb.nextLine();
+        System.out.println("Please enter your last name: ");
         String lastName = kb.nextLine();
+        generateUsername(firstName, lastName);
+
+
+
     }
 
-        public static String generateUsername(String firstName, String lastName){
-        
 
 
-        }
+
+
 
 
         // Part 2
@@ -32,11 +36,22 @@ public class UserInfoLab {
         // as shown in the demo video
         // https://drive.google.com/file/d/1sMOw5wkOgSfuUcvQhFyZ5flnv_d9qQd3/view?usp=sharing
 
-    }
+
 
     public static String generateUsername(String firstName, String lastName) {
-        // Fill in this method and return an appropriate username
-        return "";
+        String username = "";
+        if (firstName.length() >= 3 && lastName.length() >= 3) {
+            username = firstName.substring(0, 3) + lastName.substring(0, 3);
+        } else if (firstName.length() >= 3 && lastName.length() < 3) {
+            username = firstName.substring(0, 3) + lastName;
+        } else if (firstName.length() < 3 && lastName.length() >= 3) {
+            username = firstName + lastName.substring(0, 3);
+        } else {
+            username = firstName + lastName;
+        }
+       username = username.toLowerCase();
+        return username;
+
     }
 
     public static boolean validatePassword(String password) {
@@ -77,6 +92,7 @@ public class UserInfoLab {
                 return false;
         }
         return true;
+    }
     }
 
 
