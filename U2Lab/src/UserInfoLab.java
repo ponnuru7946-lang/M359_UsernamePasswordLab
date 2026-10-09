@@ -7,11 +7,12 @@ public class UserInfoLab {
         // Ask the user to enter their first and last name and pass these
         // values to the generateUsername method and save the returned result.
         Scanner kb = new Scanner(System.in);
-        System.out.println("Please enter your first name: ");
+        System.out.println("Please enter your first and last name: ");
         String firstName = kb.nextLine();
-        System.out.println("Please enter your last name: ");
         String lastName = kb.nextLine();
         generateUsername(firstName, lastName);
+        System.out.println("Please enter a password: ");
+        String password = kb.nextLine();
 
 
 
@@ -38,7 +39,7 @@ public class UserInfoLab {
 
 
 
-    public static String generateUsername(String firstName, String lastName) {
+    public static void generateUsername(String firstName, String lastName) {
         String username = "";
         if (firstName.length() >= 3 && lastName.length() >= 3) {
             username = firstName.substring(0, 3) + lastName.substring(0, 3);
@@ -50,13 +51,17 @@ public class UserInfoLab {
             username = firstName + lastName;
         }
        username = username.toLowerCase();
-        return username;
+        System.out.print(username);
 
     }
 
     public static boolean validatePassword(String password) {
-        // Fill in this method and return true/false if the password is valid
-        return true;
+        String valid = "true";
+        if (password.length() < 8){
+            valid = "false";
+            System.out.println("Too short");
+        }
+        if ()
     }
 
     public static String maskCreditCard(String creditCardNumber) {
