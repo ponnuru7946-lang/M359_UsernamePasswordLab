@@ -11,6 +11,7 @@ public class UserInfoLab {
         String firstName = kb.nextLine();
         String lastName = kb.nextLine();
         generateUsername(firstName, lastName);
+        System.out.println();
         System.out.println("Please enter a password: ");
         String password = kb.nextLine();
 
@@ -55,13 +56,36 @@ public class UserInfoLab {
 
     }
 
-    public static boolean validatePassword(String password) {
-        String valid = "true";
+    public static boolean validatePassword(String password){
+        boolean valid = true;
+        int count = 0;
+        int track = 0;
         if (password.length() < 8){
-            valid = "false";
-            System.out.println("Too short");
+            valid = false;
+            System.out.print("Too short");
         }
-        if ()
+        for (int n = 0; n < password.length(); n++){
+            if ((password.substring(n,n+1)).equals((password.substring(n,n+1)).toUpperCase()))
+                count++;
+
+        }
+        if (count < 1){
+            valid = false;
+            System.out.print("No Capital Letters");
+        }
+        if (containsDigit(password) == false){
+            valid = false;
+            System.out.print("No Digits");
+        }
+        if (valid = true){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+
     }
 
     public static String maskCreditCard(String creditCardNumber) {
